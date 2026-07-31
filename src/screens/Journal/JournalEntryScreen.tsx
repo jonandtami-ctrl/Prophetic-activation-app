@@ -3,7 +3,7 @@ import { TouchableOpacity, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useTheme } from '../../theme';
-import { Screen, Text, Card, Button, Badge, FormField, TagInput, Divider } from '../../components/ui';
+import { Screen, Text, Button, Badge, FormField, TagInput, Divider } from '../../components/ui';
 import { PillSelect, DiscernmentChecklist, HighCautionWarning, ShareLanguageHelper, PhotoPicker, VoiceRecorder, DateField } from '../../components/shared';
 import { RootStackParamList } from '../../navigation/types';
 import { useAppNavigation } from '../../navigation/hooks';
