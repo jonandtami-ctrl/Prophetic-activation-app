@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "Prophetic Journal",
+    "slug": "prophetic-journal",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "propheticjournal",
+    "userInterfaceStyle": "automatic",
+    "backgroundColor": "#0B0F2E",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.propheticjournal.app",
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Prophetic Journal can use Face ID to keep your journal and dreams private."
+      }
+    },
+    "android": {
+      "package": "com.propheticjournal.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#0B0F2E",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "permissions": ["USE_BIOMETRIC", "USE_FINGERPRINT"]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Prophetic Journal can use Face ID to keep your journal and dreams private."
+        }
+      ]
+    ]
+  }
+}
