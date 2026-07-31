@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { CompletionStatus } from '../types/models';
+import { CompletionStatus, DiscernmentChecklistAnswers } from '../types/models';
 import { nowIso } from '../lib/dates';
 import { createAsyncStorageAdapter } from './storage';
 
@@ -10,7 +10,7 @@ export interface ActivationProgress {
   completedAt?: string;
   favourite: boolean;
   journalResponses: Record<string, string>;
-  discernmentChecklist: Record<string, boolean>;
+  discernmentChecklist: DiscernmentChecklistAnswers;
   lastOpenedAt?: string;
 }
 
@@ -23,7 +23,7 @@ interface ActivationState {
   markComplete: (activationId: string) => void;
   toggleFavourite: (activationId: string) => void;
   saveJournalResponse: (activationId: string, promptKey: string, value: string) => void;
-  setDiscernmentAnswer: (activationId: string, questionKey: string, value: boolean) => void;
+  setDiscernmentAnswer: (activationId: string, questionKey: keyof DiscernmentChecklistAnswers, value: unknown) => void;
 }
 
 function blankProgress(activationId: string): ActivationProgress {
@@ -99,7 +99,7 @@ export const useActivationStore = create<ActivationState>()(
             ...get().progressByActivationId,
             [activationId]: {
               ...existing,
-              discernmentChecklist: { ...existing.discernmentChecklist, [questionKey]: value },
+              discernmentChecklist: { ...existing.discernmentChecklist, [questionKey]: value } as DiscernmentChecklistAnswers,
             },
           },
         });
