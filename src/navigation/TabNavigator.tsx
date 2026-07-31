@@ -26,9 +26,12 @@ const ICONS: Record<keyof TabParamList, keyof typeof Ionicons.glyphMap> = {
   Profile: 'person-circle',
 };
 
+// Shortened for the tab bar only — screen headers still use the full name.
+// "Activations" doesn't fit one line at this width across 7 tabs without
+// truncating to "Activa…", so the tab bar uses "Activate" instead.
 const LABELS: Record<keyof TabParamList, string> = {
   Home: 'Home',
-  Activations: 'Activations',
+  Activations: 'Activate',
   Journal: 'Journal',
   Dreams: 'Dreams',
   DiscernmentMap: 'Map',
