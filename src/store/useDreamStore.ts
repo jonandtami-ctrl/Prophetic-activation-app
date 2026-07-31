@@ -12,6 +12,7 @@ interface DreamState {
   updateDream: (id: string, patch: Partial<DreamEntry>) => void;
   removeDream: (id: string) => void;
   hydrateFromCloud: (dreams: DreamEntry[]) => void;
+  clearAll: () => void;
 }
 
 function defaultDream(overrides?: Partial<DreamEntry>): DreamEntry {
@@ -73,6 +74,7 @@ export const useDreamStore = create<DreamState>()(
         });
         set({ dreams: Array.from(byId.values()).sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1)) });
       },
+      clearAll: () => set({ dreams: [] }),
     }),
     {
       name: 'prophetic-journal/dream-entries',

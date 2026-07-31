@@ -12,6 +12,7 @@ interface JournalState {
   updateEntry: (id: string, patch: Partial<JournalEntry>) => void;
   removeEntry: (id: string) => void;
   hydrateFromCloud: (entries: JournalEntry[]) => void;
+  clearAll: () => void;
 }
 
 function defaultEntry(overrides: Partial<JournalEntry> & Pick<JournalEntry, 'entryType'>): JournalEntry {
@@ -70,6 +71,7 @@ export const useJournalStore = create<JournalState>()(
         });
         set({ entries: Array.from(byId.values()).sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1)) });
       },
+      clearAll: () => set({ entries: [] }),
     }),
     {
       name: 'prophetic-journal/journal-entries',

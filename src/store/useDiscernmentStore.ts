@@ -17,6 +17,7 @@ interface DiscernmentState {
   suggestConnection: (sourceNodeId: string, targetNodeId: string, note?: string) => void;
   approveSuggestion: (id: string) => void;
   dismissSuggestion: (id: string) => void;
+  clearAll: () => void;
 }
 
 export const useDiscernmentStore = create<DiscernmentState>()(
@@ -95,6 +96,7 @@ export const useDiscernmentStore = create<DiscernmentState>()(
       dismissSuggestion: (id) => {
         set({ suggestedConnections: get().suggestedConnections.filter((s) => s.id !== id) });
       },
+      clearAll: () => set({ nodes: [], connections: [], suggestedConnections: [] }),
     }),
     {
       name: 'prophetic-journal/discernment-map',

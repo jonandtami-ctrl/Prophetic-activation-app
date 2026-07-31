@@ -24,6 +24,7 @@ interface ActivationState {
   toggleFavourite: (activationId: string) => void;
   saveJournalResponse: (activationId: string, promptKey: string, value: string) => void;
   setDiscernmentAnswer: (activationId: string, questionKey: keyof DiscernmentChecklistAnswers, value: unknown) => void;
+  clearAll: () => void;
 }
 
 function blankProgress(activationId: string): ActivationProgress {
@@ -104,6 +105,7 @@ export const useActivationStore = create<ActivationState>()(
           },
         });
       },
+      clearAll: () => set({ progressByActivationId: {}, currentActivationId: undefined }),
     }),
     {
       name: 'prophetic-journal/activation-progress',
