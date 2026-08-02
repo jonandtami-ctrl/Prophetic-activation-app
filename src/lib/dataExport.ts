@@ -12,9 +12,9 @@ const APP_STORAGE_PREFIX = 'prophetic-journal/';
 
 export async function exportAllDataAsJson(): Promise<string> {
   const keys = (await AsyncStorage.getAllKeys()).filter((k) => k.startsWith(APP_STORAGE_PREFIX));
-  const entries = await AsyncStorage.getMany(keys);
+  const entries = await AsyncStorage.multiGet(keys);
   const data: Record<string, unknown> = {};
-  Object.entries(entries).forEach(([key, value]) => {
+  entries.forEach(([key, value]) => {
     if (value) {
       try {
         data[key] = JSON.parse(value);
@@ -38,5 +38,5 @@ export async function shareDataExport(): Promise<void> {
 
 export async function deleteAllLocalData(): Promise<void> {
   const keys = (await AsyncStorage.getAllKeys()).filter((k) => k.startsWith(APP_STORAGE_PREFIX));
-  await AsyncStorage.removeMany(keys);
+  await AsyncStorage.multiRemove(keys);
 }

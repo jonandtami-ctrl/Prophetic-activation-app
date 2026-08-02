@@ -24,7 +24,10 @@
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "permissions": ["USE_BIOMETRIC", "USE_FINGERPRINT"]
+      "permissions": [
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -35,7 +38,10 @@
         {
           "faceIDPermission": "Prophetic Journal can use Face ID to keep your journal and dreams private."
         }
-      ]
+      ],
+      "expo-secure-store",
+      "expo-sharing",
+      "expo-status-bar"
     ]
   }
 }
