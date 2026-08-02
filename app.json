@@ -38,10 +38,7 @@
         {
           "faceIDPermission": "Prophetic Journal can use Face ID to keep your journal and dreams private."
         }
-      ],
-      "expo-secure-store",
-      "expo-sharing",
-      "expo-status-bar"
+      ]
     ]
   }
 }
