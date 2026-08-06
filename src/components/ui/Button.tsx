@@ -60,7 +60,7 @@ export const Button: React.FC<ButtonProps> = ({
   if (variant === 'primary') {
     return (
       <TouchableOpacity disabled={disabled || loading} onPress={onPress} style={[{ alignSelf: fullWidth ? 'stretch' : 'flex-start' }, style]}>
-        <LinearGradient colors={[colors.accentGold, '#C99A4A']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={baseStyle}>
+        <LinearGradient colors={[colors.accentGold, '#2C6E93']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={baseStyle}>
           {inner}
         </LinearGradient>
       </TouchableOpacity>

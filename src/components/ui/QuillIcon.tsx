@@ -7,7 +7,7 @@ interface IconProps {
 }
 
 /** Golden quill motif — used as the app's small brand mark and in empty states. */
-export const QuillIcon: React.FC<IconProps> = ({ size = 28, color = '#D4AF6A' }) => (
+export const QuillIcon: React.FC<IconProps> = ({ size = 28, color = '#3E7CA6' }) => (
   <Svg width={size} height={size} viewBox="0 0 48 48" fill="none">
     <Path
       d="M40 8C28 10 16 18 10 32L6 42L16 38C30 32 38 20 40 8Z"
@@ -22,7 +22,7 @@ export const QuillIcon: React.FC<IconProps> = ({ size = 28, color = '#D4AF6A' })
 );
 
 /** Open-book motif — used on Journal / Dreams headers. */
-export const OpenBookIcon: React.FC<IconProps> = ({ size = 28, color = '#D4AF6A' }) => (
+export const OpenBookIcon: React.FC<IconProps> = ({ size = 28, color = '#3E7CA6' }) => (
   <Svg width={size} height={size} viewBox="0 0 48 48" fill="none">
     <Path
       d="M24 12C20 9 12 8 6 9V36C12 35 20 36 24 39C28 36 36 35 42 36V9C36 8 28 9 24 12Z"

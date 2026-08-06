@@ -29,7 +29,7 @@ export const Starfield: React.FC<StarfieldProps> = ({ count = 48 }) => {
   return (
     <Svg style={StyleSheet.absoluteFill} viewBox="0 0 100 100" preserveAspectRatio="none" pointerEvents="none">
       {stars.map((s) => (
-        <Circle key={s.id} cx={s.cx} cy={s.cy} r={s.r} fill="#E8C87E" opacity={s.opacity} />
+        <Circle key={s.id} cx={s.cx} cy={s.cy} r={s.r} fill="#F6EFDD" opacity={s.opacity} />
       ))}
     </Svg>
   );
