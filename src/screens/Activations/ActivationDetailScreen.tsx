@@ -8,7 +8,7 @@ import { DiscernmentChecklist, Timer } from '../../components/shared';
 import { RootStackParamList } from '../../navigation/types';
 import { useAppNavigation } from '../../navigation/hooks';
 import { getActivationById } from '../../data/activations';
-import { useActivationStore } from '../../store/useActivationStore';
+import { useActivationStore, blankProgress } from '../../store/useActivationStore';
 import { useJournalStore } from '../../store/useJournalStore';
 import { CATEGORY_LABELS, LEVEL_LABELS } from '../../constants/taxonomy';
 import { RELATIONAL_FOUNDATION_NOTE } from '../../constants/disclaimers';
@@ -20,7 +20,11 @@ export const ActivationDetailScreen: React.FC<Props> = ({ route }) => {
   const navigation = useAppNavigation();
   const activation = getActivationById(route.params.activationId);
 
-  const progress = useActivationStore((s) => (activation ? s.getProgress(activation.id) : undefined));
+  const progressRecord = useActivationStore((s) => (activation ? s.progressByActivationId[activation.id] : undefined));
+  const progress = useMemo(
+    () => (activation ? progressRecord ?? blankProgress(activation.id) : undefined),
+    [activation, progressRecord],
+  );
   const markInProgress = useActivationStore((s) => s.markInProgress);
   const markComplete = useActivationStore((s) => s.markComplete);
   const toggleFavourite = useActivationStore((s) => s.toggleFavourite);

@@ -27,7 +27,7 @@ interface ActivationState {
   clearAll: () => void;
 }
 
-function blankProgress(activationId: string): ActivationProgress {
+export function blankProgress(activationId: string): ActivationProgress {
   return {
     activationId,
     completionStatus: 'not-started',
