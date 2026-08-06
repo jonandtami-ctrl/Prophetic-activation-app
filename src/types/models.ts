@@ -66,7 +66,6 @@ export type JournalEntryType =
   | 'picture-vision'
   | 'word-of-knowledge'
   | 'intercession'
-  | 'dream'
   | 'prayer-confirmation'
   | 'testimony'
   | 'fulfilled-word'
