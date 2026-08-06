@@ -7,6 +7,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { ThemeProvider, useTheme } from './src/theme';
 import { RootNavigator } from './src/navigation/RootNavigator';
+import { AppLockGate } from './src/components/shared/AppLockGate';
 
 function Root() {
   const { colors } = useTheme();
@@ -24,10 +25,14 @@ function Root() {
   };
 
   return (
-    <NavigationContainer theme={navTheme}>
+    <>
       <StatusBar style={colors.mode === 'dark' ? 'light' : 'dark'} />
-      <RootNavigator />
-    </NavigationContainer>
+      <AppLockGate>
+        <NavigationContainer theme={navTheme}>
+          <RootNavigator />
+        </NavigationContainer>
+      </AppLockGate>
+    </>
   );
 }
 

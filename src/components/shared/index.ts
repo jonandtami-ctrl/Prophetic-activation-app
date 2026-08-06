@@ -6,3 +6,4 @@ export * from './Timer';
 export * from './PhotoPicker';
 export * from './VoiceRecorder';
 export * from './DateField';
+export * from './AppLockGate';
